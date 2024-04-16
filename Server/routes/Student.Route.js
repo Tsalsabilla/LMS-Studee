@@ -92,7 +92,7 @@ router.post("/register", isAuthenticated, async (req, res) => {
   } catch (err) {
     // res.status(404).send({ msg: "Student Registration failed" });
     console.error(err); // Log the error for debugging purposes
-    res.status(500).send({ msg: "Admin Registration failed" });
+    res.status(500).send({ msg: "Student Registration failed" });
   }
 });
 
