@@ -26,55 +26,73 @@ router.post("/register", isAuthenticated, async (req, res) => {
   try {
     let user = await StudentModel.find({ email });
     if (user.length > 0) {
-      return res.send({ msg: "User already registered" });
+      // return res.send({ msg: "User already registered" });
+      return res.status(400).send({ msg: "User already registered" });
     }
-    bcrypt.hash(
+
+    const student = new StudentModel({
+      name,
+      email,
+      class: req.body.data.class,
       password,
-      +process.env.Salt_rounds,
-      async (err, secure_password) => {
-        if (err) {
-          console.log(err);
-        } else {
-          const student = new StudentModel({
-            name,
-            email,
-            class: req.body.data.class,
-            password: secure_password,
-          });
-          await student.save();
-          let newStudent = await StudentModel.find({ email });
+    });
+    await student.save();
+    let newStudent = await StudentModel.find({ email });
 
-          const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-              user: "agrawaljoy1@gmail.com",
-              pass: "nsziioprjzwcodlm",
-            },
-          });
+    res.send({
+      msg: "Student Registered Successfully",
+      student: newStudent[0],
+    });
 
-          const mailOptions = {
-            from: "agrawaljoy1@gmail.com",
-            to: email,
-            subject: "Account ID and Password",
-            text: `Welcome to Studee, Congratulations,Your account has been created successfully.This is your User type : Student and Password : ${password}  `,
-          };
+    // bcrypt.hash(
+    //   password,
+    //   +process.env.Salt_rounds,
+    //   async (err, secure_password) => {
+    //     if (err) {
+    //       console.log(err);
+    //     } else {
+    //       const student = new StudentModel({
+    //         name,
+    //         email,
+    //         class: req.body.data.class,
+    //         password: secure_password,
+    //       });
+    //       await student.save();
+    //       let newStudent = await StudentModel.find({ email });
 
-          transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-              return res.send({ msg: "error" });
-            }
-            res.send({ msg: "Password sent" });
-          });
+    //       const transporter = nodemailer.createTransport({
+    //         service: "gmail",
+    //         auth: {
+    //           user: "agrawaljoy1@gmail.com",
+    //           pass: "nsziioprjzwcodlm",
+    //         },
+    //       });
 
-          res.send({
-            msg: "Student Registered Successfully",
-            student: newStudent[0],
-          });
-        }
-      }
-    );
+    //       const mailOptions = {
+    //         from: "agrawaljoy1@gmail.com",
+    //         to: email,
+    //         subject: "Account ID and Password",
+    //         text: `Welcome to Studee, Congratulations,Your account has been created successfully.This is your User type : Student and Password : ${password}  `,
+    //       };
+
+    //       transporter.sendMail(mailOptions, (error, info) => {
+    //         if (error) {
+    //           return res.send({ msg: "error" });
+    //         }
+    //         res.send({ msg: "Password sent" });
+    //       });
+
+    //       res.send({
+    //         msg: "Student Registered Successfully",
+    //         student: newStudent[0],
+    //       });
+    //     }
+    //   }
+    // );
   } catch (err) {
-    res.status(404).send({ msg: "Student Registration failed" });
+    // res.status(404).send({ msg: "Student Registration failed" });
+    console.error(err); // Log the error for debugging purposes
+    res.status(500).send({ msg: "Admin Registration failed" });
   }
 });
 
@@ -88,22 +106,34 @@ router.post("/login", async (req, res) => {
       if (student[0].access == "false") {
         return res.send({ message: "Access Denied" });
       }
-      bcrypt.compare(password, student[0].password, (err, results) => {
-        if (results) {
-          let token = jwt.sign(
-            { email, name: student[0].name },
-            process.env.secret_key,
-            { expiresIn: "7d" }
-          );
-          res.send({
-            message: "Login Successful",
-            user: student[0],
-            token,
-          });
-        } else {
-          res.status(201).send({ message: "Wrong credentials" });
-        }
-      });
+      if (password === student[0].password) {
+        let token = jwt.sign(
+                { email, name: student[0].name },
+                process.env.secret_key,
+                { expiresIn: "7d" }
+              );
+              res.send({
+                message: "Login Successful",
+                user: student[0],
+                token,
+              });
+            }
+      // bcrypt.compare(password, student[0].password, (err, results) => {
+      //   if (results) {
+      //     let token = jwt.sign(
+      //       { email, name: student[0].name },
+      //       process.env.secret_key,
+      //       { expiresIn: "7d" }
+      //     );
+      //     res.send({
+      //       message: "Login Successful",
+      //       user: student[0],
+      //       token,
+      //     });
+      //   } else {
+      //     res.status(201).send({ message: "Wrong credentials" });
+      //   }
+      // });
     } else {
       res.send({ message: "Wrong credentials" });
     }

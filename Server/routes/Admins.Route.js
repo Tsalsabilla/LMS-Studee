@@ -28,7 +28,8 @@ router.post("/register", isAdminAuthenticated, async (req, res) => {
   try {
     let user = await AdminModel.find({ email });
     if (user.length > 0) {
-      return res.send({ msg: "User already registered" });
+      // return res.send({ msg: "User already registered" });
+      return res.status(400).send({ msg: "User already registered" });
     }
 
     const admin = new AdminModel({
@@ -90,7 +91,9 @@ router.post("/register", isAdminAuthenticated, async (req, res) => {
     //   }
     // );
   } catch (err) {
-    res.status(404).send({ msg: "Admin Registration failed" });
+    // res.status(404).send({ msg: "Admin Registration failed" });
+    console.error(err); // Log the error for debugging purposes
+    res.status(500).send({ msg: "Admin Registration failed" });
   }
 });
 
