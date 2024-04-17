@@ -5,6 +5,8 @@ import { authLogout } from "../../Redux/auth/action";
 import Menu from "../Menu/Menu";
 import { Dropdown } from "antd";
 
+import SidebarItem from "./SideBarItem"
+
 // Image imports
 import user from "../../Assets/useravatar.png";
 import logo from "../../Assets/logo.png";
@@ -45,7 +47,11 @@ const Navbar = ({ children }) => {
     { icon: <RiAdminLine />, title: "Admins", address: "/admin" },
     { icon: <BiUserVoice />, title: "Tutors", address: "/tutor" },
     { icon: <PiStudentDuotone />, title: "Students", address: "/student" },
-    { icon: <TbBrandSpeedtest />, title: "Quizzes", address: "/quizzes" },
+    { icon: <TbBrandSpeedtest />, title: "Quizzes", address: "/quizzes" , childrens: [
+      { icon: <RiAdminLine />, title: "Admins", address: "/admin" },
+      { icon: <BiUserVoice />, title: "Tutors", address: "/tutor" },
+      { icon: <PiStudentDuotone />, title: "Students", address: "/student" }
+    ]},
     { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
     { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
   ];
@@ -80,7 +86,7 @@ const Navbar = ({ children }) => {
   const handleLogout = () => {
     dispatch(authLogout());
   };
-
+  
   return (
     <>
       {/* Side Bar */}
@@ -99,38 +105,23 @@ const Navbar = ({ children }) => {
         <ul className="side-menu top">
           {userType === "Tutor"
             ? tutorData?.map((data, i) => {
-                return (
-                  <Menu
-                    Icon={data.icon}
-                    Title={data.title}
-                    key={i}
-                    Address={data.address}
-                  />
-                );
+              return (
+                <SidebarItem key={i} item={data} />
+              );
               })
             : ""}
           {userType === "Student"
             ? studentData?.map((data, i) => {
-                return (
-                  <Menu
-                    Icon={data.icon}
-                    Title={data.title}
-                    key={i}
-                    Address={data.address}
-                  />
-                );
+              return (
+                <SidebarItem key={i} item={data} />
+              );
               })
             : ""}
           {userType === "Admin"
             ? adminData?.map((data, i) => {
-                return (
-                  <Menu
-                    Icon={data.icon}
-                    Title={data.title}
-                    key={i}
-                    Address={data.address}
-                  />
-                );
+              return (
+                <SidebarItem key={i} item={data} />
+              );
               })
             : ""}
           {/* {userType == "Student" && premium == "false" ? (
