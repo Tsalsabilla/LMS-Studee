@@ -47,3 +47,10 @@
   font-size: 20px;
   margin-right: 10px;
 }
+.sidebar-title:hover{
+  transform: translateY(-0.2rem);
+  transition: transform 150ms;
+}
+.sidebar-title span svg:hover{
+  color: var(--pink);
+}

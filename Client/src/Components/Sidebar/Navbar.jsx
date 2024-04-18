@@ -5,19 +5,23 @@ import { authLogout } from "../../Redux/auth/action";
 import Menu from "../Menu/Menu";
 import { Dropdown } from "antd";
 
+import SidebarItem from "./SideBarItem"
+
 // Image imports
 import user from "../../Assets/useravatar.png";
 import logo from "../../Assets/logo.png";
 
 // Icon imports
-import { BiLogOut, BiUserVoice } from "react-icons/bi";
-import { TbLayoutGridAdd, TbUsers, TbBrandSpeedtest } from "react-icons/tb";
+import { BiLogOut } from "react-icons/bi";
+import { TbLayoutGridAdd } from "react-icons/tb";
 import { LuLayoutGrid } from "react-icons/lu";
-import { PiStudentDuotone } from "react-icons/pi";
-import { HiOutlineHome } from "react-icons/hi";
-import { GoChevronDown } from "react-icons/go";
+import { PiStudent, PiChalkboardTeacher } from "react-icons/pi";
+import { GoChevronDown, GoTrophy, GoHome } from "react-icons/go";
 import { RiAdminLine } from "react-icons/ri";
-import { AiOutlineQuestion } from "react-icons/ai";
+import { AiOutlineSchedule, AiOutlineRead, AiOutlinePlayCircle } from "react-icons/ai";
+import { CgGames } from "react-icons/cg";
+import { IoBulbOutline } from "react-icons/io5";
+import { MdOutlineAssignment } from "react-icons/md";
 
 // CSS imports
 import "./Navbar.css";
@@ -41,31 +45,49 @@ const Navbar = ({ children }) => {
 
   //Sidebar menu
   const adminData = [
-    { icon: <HiOutlineHome />, title: "Dashboard", address: "/home" },
+    { icon: <GoHome />, title: "Dashboard", address: "/home" },
     { icon: <RiAdminLine />, title: "Admins", address: "/admin" },
-    { icon: <BiUserVoice />, title: "Tutors", address: "/tutor" },
-    { icon: <PiStudentDuotone />, title: "Students", address: "/student" },
-    { icon: <TbBrandSpeedtest />, title: "Quizzes", address: "/quizzes" },
-    { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
-    { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
+    { icon: <PiChalkboardTeacher />, title: "Tutors", address: "/tutor" },
+    { icon: <PiStudent />, title: "Students", address: "/student" },
+    { icon: <AiOutlineSchedule />, title: "Test", address: "/contents" },
+    // { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
+    { icon: <AiOutlineRead />, title: "Lessons", address: "/contents" },
+    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [
+    // { icon: <TbBrandSpeedtest />, title: "Quizzess", address: "/quizzes" , childrens: [
+      { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
+      { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
+      { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
+      { icon: <CgGames />, title: "Quiz", address: "/quizzes" },
+    ]},
+    { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
+    // { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
   ];
   const studentData = [
-    { icon: <HiOutlineHome />, title: "Dashboard", address: "/home" },
-    { icon: <TbBrandSpeedtest />, title: "Quizzes", address: "/quizzes" },
-    { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
-    { icon: <AiOutlineQuestion />, title: "Doubts", address: "/doubts" },
-    // { icon: <TbMessages />, title: "Message", address: "/messages" },
-    { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
-    // { icon: <BsBookmarkCheck />, title: "Bookmarks", address: "/bookmarks" },
+    { icon: <GoHome />, title: "Dashboard", address: "/home" },
+    { icon: <AiOutlineSchedule />, title: "Test", address: "/contents" },
+    // { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
+    { icon: <AiOutlineRead />, title: "Lessons", address: "/contents" },
+    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [
+    // { icon: <TbBrandSpeedtest />, title: "Quizzess", address: "/quizzes" , childrens: [
+      { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
+      { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
+      { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
+      { icon: <CgGames />, title: "Quiz", address: "/quizzes" },
+    ]},
+    { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
+    // { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
   ];
   const tutorData = [
-    { icon: <HiOutlineHome />, title: "Dashboard", address: "/home" },
-    { icon: <PiStudentDuotone />, title: "Students", address: "/student" },
-    { icon: <TbBrandSpeedtest />, title: "Quizzes", address: "/quizzes" },
-    { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
-    { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
-    { icon: <AiOutlineQuestion />, title: "Doubts", address: "/doubts" },
-    // { icon: <TbMessages />, title: "Message", address: "/messages" },
+    { icon: <GoHome />, title: "Dashboard", address: "/home" },
+    { icon: <PiStudent />, title: "Students", address: "/student" },
+    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [
+      // { icon: <TbBrandSpeedtest />, title: "Quizzess", address: "/quizzes" , childrens: [
+        { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
+        { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
+        { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
+        { icon: <CgGames />, title: "Quiz", address: "/quizzes" },
+      ]},    { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
+    { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
   ];
 
   // Dropdown menu
@@ -80,7 +102,7 @@ const Navbar = ({ children }) => {
   const handleLogout = () => {
     dispatch(authLogout());
   };
-
+  
   return (
     <>
       {/* Side Bar */}
@@ -99,38 +121,23 @@ const Navbar = ({ children }) => {
         <ul className="side-menu top">
           {userType === "Tutor"
             ? tutorData?.map((data, i) => {
-                return (
-                  <Menu
-                    Icon={data.icon}
-                    Title={data.title}
-                    key={i}
-                    Address={data.address}
-                  />
-                );
+              return (
+                <SidebarItem key={i} item={data} />
+              );
               })
             : ""}
           {userType === "Student"
             ? studentData?.map((data, i) => {
-                return (
-                  <Menu
-                    Icon={data.icon}
-                    Title={data.title}
-                    key={i}
-                    Address={data.address}
-                  />
-                );
+              return (
+                <SidebarItem key={i} item={data} />
+              );
               })
             : ""}
           {userType === "Admin"
             ? adminData?.map((data, i) => {
-                return (
-                  <Menu
-                    Icon={data.icon}
-                    Title={data.title}
-                    key={i}
-                    Address={data.address}
-                  />
-                );
+              return (
+                <SidebarItem key={i} item={data} />
+              );
               })
             : ""}
           {/* {userType == "Student" && premium == "false" ? (
@@ -159,7 +166,7 @@ const Navbar = ({ children }) => {
             {userType == "Student" ? (
               premium == "false" ? (
                 <Link href="/" className="nav-link">
-                  Welcome to Studee 🖐
+                  Welcome to <span>Studee 🖐</span>
                 </Link>
               ) : (
                 "🔥You are a premium member !"
