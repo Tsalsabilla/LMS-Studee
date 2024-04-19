@@ -1,19 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createDoubt, getDoubtData } from "../../Redux/doubt/action";
+import { useNavigate } from "react-router-dom";
+import { createAssignment, getAssignmentData } from "../../Redux/assignment/action";
 
-//component imports
+//components
 import Navbar from "../../Components/Sidebar/Navbar";
 import Header from "../../Components/Header/Header";
+import AssignmentBox from "../../Components/Assignment/AssignmentBox";
 import AddIcon from "../../Components/AddIcon/AddIcon";
-import DoubtBox from "../../Components/DoubtBox/DoubtBox";
 
 //css imports
 import { Button, Drawer, Space, Spin, message } from "antd";
-import "./Doubts.css";
+import "./Assignment.css";
 
-const Doubts = () => {
+const Assignment = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,13 +22,13 @@ const Doubts = () => {
     data: { isAuthenticated },
   } = useSelector((store) => store.auth);
   const { user } = useSelector((store) => store.auth.data);
-  const { doubt, load } = useSelector((store) => store.doubt);
-
-  //alert api antd
-  const [messageApi, contextHolder] = message.useMessage();
+  const { assignment, load } = useSelector((store) => store.assignment);
 
   //loading state
   const [loading, setLoading] = useState(false);
+
+  //alert api
+  const [messageApi, contextHolder] = message.useMessage();
 
   //drawer states and functions
   const [open, setOpen] = useState(false);
@@ -42,18 +42,17 @@ const Doubts = () => {
   //form states and functions
   const initialFormData = {
     title: "",
-    description: "",
     class: "",
     subject: "",
-    name: user?.name,
-    studentId: user?._id,
+    type: "",
+    creator: user?.name,
   };
   const [formData, setFormData] = useState(initialFormData);
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //upload states
+  //upload file states
   const [size, setSize] = useState("");
   const [fileType, setFileType] = useState("");
   const [fileUrl, setFileUrl] = useState("");
@@ -63,6 +62,7 @@ const Doubts = () => {
   const UploadRef = useRef();
   const WidgetRef = useRef();
 
+  //upload and add assignment function
   const handleSubmit = () => {
     for (let keys in formData) {
       if (formData[keys] == "") {
@@ -70,12 +70,11 @@ const Doubts = () => {
       }
     }
     if (size == "" || fileType == "" || fileUrl == "" || thumbnailUrl == "") {
-      return alert("Please pls upload a file explaining your doubt");
+      return alert("Please choose a correct file type");
     }
     let obj = { ...formData, size, fileType, thumbnailUrl, fileUrl };
-    console.log(obj);
     setLoading(true);
-    dispatch(createDoubt(obj)).then((res) => {
+    dispatch(createAssignment(obj)).then((res) => {
       if (res.msg == "Error") {
         setLoading(false);
         messageApi.open({
@@ -88,14 +87,14 @@ const Doubts = () => {
         onClose();
         return messageApi.open({
           type: "info",
-          content: "Doubt posted",
+          content: "Assignment Created",
           duration: 3,
         });
       }
     });
   };
 
-  //cloudinary upload settings
+  // cloudinary upload settings
   useEffect(() => {
     UploadRef.current = window.cloudinary;
     WidgetRef.current = UploadRef.current.createUploadWidget(
@@ -125,7 +124,7 @@ const Doubts = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(getDoubtData());
+    dispatch(getAssignmentData());
   }, []);
 
   useEffect(() => {
@@ -136,34 +135,27 @@ const Doubts = () => {
 
   return (
     <Navbar>
-      <div className="content">
-        <Header Title={"Knowledge"} Address={"Knowledge"} />
+      <div className="assignment">
+        {/* header component */}
+        <Header Title={"Assignment"} Address={"Assignment"} />
 
-        <h3>Unsolved Doubts</h3>
-        <div className="contentData">
-          {doubt
-            ?.filter((elem) => elem.resolved == "No")
-            .map((data, i) => {
-              return <DoubtBox data={data} key={i} />;
-            })}
+        {/* assignment component */}
+        <div className="assignmentData">
+          {assignment?.map((data, i) => {
+            return <AssignmentBox data={data} key={i} />;
+          })}
         </div>
-        <h3>Resolved Doubts</h3>
+        {user?.userType !== "Student" ? (
+          <div onClick={showDrawer}>
+            <AddIcon />
+          </div>
+        ) : (
+          ""
+        )}
 
-        <div className="contentData">
-          {doubt
-            ?.filter((elem) => elem.resolved == "Yes")
-            .map((data, i) => {
-              return <DoubtBox data={data} key={i} />;
-            })}
-        </div>
-
-        <div onClick={showDrawer}>
-          <AddIcon />
-        </div>
-
-        {/* drawer  */}
+        {/* create assignment drawer */}
         <Drawer
-          title="Create Doubts"
+          title="Create Assignment"
           width={720}
           onClose={onClose}
           open={open}
@@ -179,13 +171,6 @@ const Doubts = () => {
               type="text"
               name="title"
               value={formData.title}
-              onChange={(e) => handleFormChange(e)}
-            />
-            <input
-              placeholder="Description"
-              type="text"
-              name="description"
-              value={formData.description}
               onChange={(e) => handleFormChange(e)}
             />
             <select name="class" onChange={(e) => handleFormChange(e)}>
@@ -206,6 +191,12 @@ const Doubts = () => {
               <option value="Political science">Pemrograman, Tipe data, Variabel dan Operator</option>
               <option value="History">Percabangan dan Perulangan</option>
             </select>
+            <select name="type" onChange={(e) => handleFormChange(e)}>
+              <option value="">Choose Assignment Type</option>
+              <option value="Assignment">Video</option>
+              <option value="Project">Book</option>
+              <option value="Practice">LKPD</option>
+            </select>
           </form>
           {size ? (
             <div className="uploadedImgDiv">
@@ -224,10 +215,10 @@ const Doubts = () => {
             Upload File
           </button>
           <button className="submitBtn" onClick={handleSubmit}>
-            Add Doubt
+            Add Assignment
           </button>
 
-          {/* drawer loading indicator */}
+          {/* drawer loading indicator  */}
           {loading ? (
             <Space
               style={{
@@ -271,4 +262,4 @@ const Doubts = () => {
   );
 };
 
-export default Doubts;
+export default Assignment;

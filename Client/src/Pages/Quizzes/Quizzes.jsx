@@ -175,7 +175,7 @@ const Quizzes = () => {
     <Navbar>
       <div className="quizzes">
         {contextHolder}
-        <Header Title={"Quizzes"} Address={"Quizzes"} />
+        <Header Title={"Quiz"} Address={"Quiz"} />
         <div className="quizData">
           {quiz?.map((data, i) => {
             return <Quiz data={data} key={i} />;

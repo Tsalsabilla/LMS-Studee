@@ -175,7 +175,7 @@ const Lessons = () => {
     <Navbar>
       <div className="lessons">
         {contextHolder}
-        <Header Title={"Lessons"} Address={"Lessons"} />
+        <Header Title={"Lesson"} Address={"Lesson"} />
         <div className="lessonData">
           {lesson?.map((data, i) => {
             return <Lesson data={data} key={i} />;

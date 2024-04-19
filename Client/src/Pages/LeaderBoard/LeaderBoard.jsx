@@ -35,7 +35,7 @@ const LeaderBoard = () => {
     <Navbar>
       {/* header  */}
       <div className="leaderboard">
-        <Header Title={"Ranking"} Address={"Leaderboard"} />
+        <Header Title={"Grade"} Address={"Grade"} />
       </div>
 
       <div className="leaderboardData">

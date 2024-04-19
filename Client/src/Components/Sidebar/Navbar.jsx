@@ -46,21 +46,18 @@ const Navbar = ({ children }) => {
   //Sidebar menu
   const adminData = [
     { icon: <GoHome />, title: "Dashboard", address: "/home" },
-    { icon: <RiAdminLine />, title: "Admins", address: "/admin" },
+    { icon: <RiAdminLine />, title: "Admin", address: "/admin" },
     { icon: <PiChalkboardTeacher />, title: "Tutors", address: "/tutor" },
     { icon: <PiStudent />, title: "Students", address: "/student" },
     { icon: <AiOutlineSchedule />, title: "Test", address: "/tests" },
-    // { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
     { icon: <AiOutlineRead />, title: "Lessons", address: "/lessons" },
-    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [
-    // { icon: <TbBrandSpeedtest />, title: "Quizzess", address: "/quizzes" , childrens: [
-      { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
+    { icon: <TbLayoutGridAdd />, title: "Activities", childrens: [
+      { icon: <AiOutlinePlayCircle />, title: "Videos", address: "/contents" },
       { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
-      { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
-      { icon: <CgGames />, title: "Quiz", address: "/quizzes" },
+      { icon: <MdOutlineAssignment />, title: "Assignments", address: "/assignments" },
+      { icon: <CgGames />, title: "Quizzes", address: "/quizzes" },
     ]},
-    { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
-    // { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
+    { icon: <GoTrophy />, title: "Grades", address: "/leaderboard" },
   ];
   const studentData = [
     { icon: <GoHome />, title: "Dashboard", address: "/home" },

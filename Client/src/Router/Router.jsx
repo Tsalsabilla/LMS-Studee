@@ -8,8 +8,10 @@ import Student from "../Pages/Student/Student";
 import Quizzes from "../Pages/Quizzes/Quizzes";
 import Lessons from "../Pages/Lessons/Lessons";
 import Content from "../Pages/Contents/Content";
+import Assignment from "../Pages/Assignments/Assignment";
 import Test from "../Pages/Tests/Test";
 import SingleContent from "../Pages/SingleContent/SingleContent";
+import SingleAssignment from "../Pages/SingleAssignment/SingleAssignment";
 import SingleTest from "../Pages/SingleTest/SingleTest";
 import Doubts from "../Pages/Doubts/Doubts";
 import SingleDoubt from "../Pages/SingleDoubt/SingleDoubt";
@@ -29,6 +31,8 @@ const Router = () => {
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/content/:id" element={<SingleContent />} />
         <Route path="/contents" element={<Content />} />
+        <Route path="/assignment/:id" element={<SingleAssignment />} />
+        <Route path="/assignments" element={<Assignment />} />
         <Route path="/test/:id" element={<SingleTest />} />
         <Route path="/tests" element={<Test />} />
         <Route path="/doubts" element={<Doubts />} />

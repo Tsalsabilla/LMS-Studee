@@ -79,7 +79,7 @@ const Test = () => {
         setLoading(false);
         messageApi.open({
           type: "info",
-          test: "Error",
+          content: "Error",
           duration: 3,
         });
       } else {
@@ -87,7 +87,7 @@ const Test = () => {
         onClose();
         return messageApi.open({
           type: "info",
-          test: "Test Created",
+          content: "Test Created",
           duration: 3,
         });
       }
@@ -137,7 +137,7 @@ const Test = () => {
     <Navbar>
       <div className="test">
         {/* header component */}
-        <Header Title={"Tests"} Address={"Tests"} />
+        <Header Title={"Test"} Address={"Test"} />
 
         {/* test component */}
         <div className="testData">
