@@ -49,7 +49,7 @@ const Navbar = ({ children }) => {
     { icon: <RiAdminLine />, title: "Admins", address: "/admin" },
     { icon: <PiChalkboardTeacher />, title: "Tutors", address: "/tutor" },
     { icon: <PiStudent />, title: "Students", address: "/student" },
-    { icon: <AiOutlineSchedule />, title: "Test", address: "/contents" },
+    { icon: <AiOutlineSchedule />, title: "Test", address: "/tests" },
     // { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
     { icon: <AiOutlineRead />, title: "Lessons", address: "/contents" },
     { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [

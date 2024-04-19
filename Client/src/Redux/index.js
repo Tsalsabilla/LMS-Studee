@@ -5,6 +5,7 @@ import tutorReducer from "./tutor/reducer";
 import studentReducer from "./student/reducer";
 import quizReducer from "./quiz/reducer";
 import contentReducer from "./content/reducer";
+import testReducer from "./test/reducer";
 import doubtReducer from "./doubt/reducer";
 import dashboardReducer from "./dashboard/reducer";
 
@@ -15,6 +16,7 @@ export const rootReducer = combineReducers({
   student: studentReducer,
   quiz: quizReducer,
   content: contentReducer,
+  test: testReducer,
   doubt: doubtReducer,
   dashboard: dashboardReducer,
 });

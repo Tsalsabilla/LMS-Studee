@@ -25,6 +25,7 @@ const studentRouter = require("./routes/Student.Route");
 const tutorRouter = require("./routes/Tutor.Route");
 const quizRouter = require("./routes/Quiz.Route");
 const contentRouter = require("./routes/Content.Route");
+const testRouter = require("./routes/Test.Route");
 const DoubtRouter = require("./routes/Doubt.Route");
 const DashboardRouter = require("./routes/Dashboard.Route");
 
@@ -41,6 +42,7 @@ app.use("/tutor", tutorRouter);
 app.use("/student", studentRouter);
 app.use("/quiz", quizRouter);
 app.use("/content", contentRouter);
+app.use("/test", testRouter);
 app.use("/doubt", DoubtRouter);
 app.use("/dashboard", DashboardRouter);
 
