@@ -87,7 +87,7 @@ const Content = () => {
         onClose();
         return messageApi.open({
           type: "info",
-          content: "Quiz Created",
+          content: "Content Created",
           duration: 3,
         });
       }

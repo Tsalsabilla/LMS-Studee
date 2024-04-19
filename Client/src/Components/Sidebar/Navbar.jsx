@@ -51,7 +51,7 @@ const Navbar = ({ children }) => {
     { icon: <PiStudent />, title: "Students", address: "/student" },
     { icon: <AiOutlineSchedule />, title: "Test", address: "/tests" },
     // { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
-    { icon: <AiOutlineRead />, title: "Lessons", address: "/contents" },
+    { icon: <AiOutlineRead />, title: "Lessons", address: "/lessons" },
     { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [
     // { icon: <TbBrandSpeedtest />, title: "Quizzess", address: "/quizzes" , childrens: [
       { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
