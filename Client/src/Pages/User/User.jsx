@@ -59,6 +59,14 @@ const indexToLetter = (index) => {
                         <span className="mr-2">{index + 1}.</span>{" "}
                         <span>{question.question}</span>
                       </h1>
+                      {/* Tampilkan gambar pertanyaan jika ada */}
+                      {question.imageUrl && (
+                        <img
+                          src={question.imageUrl}
+                          alt="Question Image"
+                          className="object-contain max-h-96 w-full mb-4"
+                        />
+                      )}
                     </div>
                     <div className="options">
                       {question.options.map((option, index) => {
