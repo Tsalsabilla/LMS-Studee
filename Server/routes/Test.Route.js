@@ -3,7 +3,7 @@ const router = express.Router();
 
 //model import
 const { TestModel } = require("../models/test.model");
-const { JavaScripQuiz } = require("../models/quiz.javascript");
+const JavaScripQuiz = require("../models/quiz.javascript");
 
 
 //middleware import
