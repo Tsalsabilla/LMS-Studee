@@ -186,8 +186,9 @@ const Quiz = () => {
           <p>Test Type : {singleTest?.type}</p>
           <p>Tutor : {singleTest?.creator}</p>
         </div>
-      </div>
-      <div className="quiz-wrapper w-full min-h-[100vh] md:grid grid-cols-3">
+        
+        {/* quiz2 */}
+        <div className="quiz-wrapper w-full min-h-[100vh] md:grid grid-cols-3">
         <div className="md:block hidden">
           <img src={Img} alt="" className="h-[100%] opacity-[.5]" />
         </div>
@@ -312,6 +313,7 @@ const Quiz = () => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </Navbar>
   );
