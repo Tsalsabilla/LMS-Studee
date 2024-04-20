@@ -77,8 +77,8 @@ const Home = () => {
     },
     {
       icon: <TbBrandSpeedtest />,
-      title: "Quizzes",
-      number: dashboard?.quizzes?.length || 0,
+      title: "Scratchs",
+      number: dashboard?.scratchs?.length || 0,
     },
     {
       icon: <AiOutlineQuestion />,

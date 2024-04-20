@@ -1,25 +1,25 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteQuiz } from "../../Redux/quiz/action";
-import "./Quiz.css";
+import { deleteScratch } from "../../Redux/scratch/action";
+import "./Scratch.css";
 import startImage from '/img/start.png';
 import questionImage from '/img/question.png';
 import starImage from '/img/star.png';
 import deleteImage from '/img/deletec.png';
 
-const Quiz = ({ data }) => {
+const Scratch = ({ data }) => {
   const dispatch = useDispatch();
 
   const {
     user: { userType },
   } = useSelector((store) => store.auth.data);
 
-  const deleteQuizFunc = (id) => {
-    dispatch(deleteQuiz(id));
+  const deleteScratchFunc = (id) => {
+    dispatch(deleteScratch(id));
   };
 
   return (
-    <div className="quizDiv">
+    <div className="scratchDiv">
       <div>
         <img src={data.thumbnail} alt="thumbnail" />
       </div>
@@ -28,20 +28,20 @@ const Quiz = ({ data }) => {
           <p>{data.title}</p>
           <p>{data.subject}</p>
           <p>Class {data.class}</p>
-          <p className="quizTime">{data.totalTime} mins</p>
+          <p className="scratchTime">{data.totalTime} mins</p>
         </div>
-        <div className= "quizRight">
-          <p className="quizPoint"><img src={questionImage}/>Questions : {data.noOfQuestions}</p>
-          <p className="quizPoint"><img src={starImage}/>Points : {data.totalPoint}</p>
+        <div className= "scratchRight">
+          <p className="scratchPoint"><img src={questionImage}/>Questions : {data.noOfQuestions}</p>
+          <p className="scratchPoint"><img src={starImage}/>Points : {data.totalPoint}</p>
           {userType == "Admin" || userType == "Tutor" ? (
             <button
-              className="deleteQuiz"
-              onClick={() => deleteQuizFunc(data._id)}
+              className="deleteScratch"
+              onClick={() => deleteScratchFunc(data._id)}
             >
               <img src={deleteImage}/>
             </button>
           ) : (
-            <button className="startQuiz"><img src={startImage}/></button>
+            <button className="startScratch"><img src={startImage}/></button>
           )}
         </div>
       </div>
@@ -49,4 +49,4 @@ const Quiz = ({ data }) => {
   );
 };
 
-export default Quiz;
+export default Scratch;

@@ -32,10 +32,10 @@ const studentSchema = mongoose.Schema(
       default: "false",
     },
     totalPoints: { type: Number, default: 0 },
-    totalQuiz: { type: Number, default: 0 },
+    totalScratch: { type: Number, default: 0 },
     averageTime: { type: Number, default: 0 },
-    quizIds: [{ type: String }],
-    quizDetails: [{ type: Object }],
+    scratchIds: [{ type: String }],
+    scratchDetails: [{ type: Object }],
   },
   { versionKey: false, timestamps: true }
 );

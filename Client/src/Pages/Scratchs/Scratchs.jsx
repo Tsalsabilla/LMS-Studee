@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "./Quizzes.css";
+import "./Scratchs.css";
 import Navbar from "../../Components/Sidebar/Navbar";
 import Header from "../../Components/Header/Header";
 import AddIcon from "../../Components/AddIcon/AddIcon";
-import Quiz from "../../Components/Quiz/Quiz";
+import Scratch from "../../Components/Scratch/Scratch";
 import { Button, Drawer, Space, Spin, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { createQuiz, getQuizData } from "../../Redux/quiz/action";
+import { createScratch, getScratchData } from "../../Redux/scratch/action";
 import { useNavigate } from "react-router-dom";
 import deleteImage from '/img/deletec.png';
 
-const Quizzes = () => {
+const Scratchs = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [childrenDrawer, setChildrenDrawer] = useState(false);
@@ -21,7 +21,7 @@ const Quizzes = () => {
     data: { isAuthenticated },
   } = useSelector((store) => store.auth);
   const navigate = useNavigate();
-  const { quiz, load } = useSelector((store) => store.quiz);
+  const { scratch, load } = useSelector((store) => store.scratch);
 
   const showDrawer = () => {
     setOpen(true);
@@ -96,7 +96,7 @@ const Quizzes = () => {
     setAllQuestions(allQuestions.filter((elem, index) => index != i));
   };
 
-  const submitQuiz = () => {
+  const submitScratch = () => {
     for (let keys in formData) {
       if (formData[keys] == "") {
         return messageApi.open({
@@ -138,7 +138,7 @@ const Quizzes = () => {
 
     console.log(obj);
     setLoading(true);
-    dispatch(createQuiz(obj)).then((res) => {
+    dispatch(createScratch(obj)).then((res) => {
       if (res.msg == "Error") {
         setLoading(false);
         messageApi.open({
@@ -154,7 +154,7 @@ const Quizzes = () => {
         onClose();
         return messageApi.open({
           type: "info",
-          content: "Quiz Created",
+          content: "Scratch Created",
           duration: 3,
         });
       }
@@ -162,7 +162,7 @@ const Quizzes = () => {
   };
 
   useEffect(() => {
-    dispatch(getQuizData());
+    dispatch(getScratchData());
   }, []);
 
   useEffect(() => {
@@ -173,12 +173,12 @@ const Quizzes = () => {
 
   return (
     <Navbar>
-      <div className="quizzes">
+      <div className="scratchs">
         {contextHolder}
-        <Header Title={"Quiz"} Address={"Quiz"} />
-        <div className="quizData">
-          {quiz?.map((data, i) => {
-            return <Quiz data={data} key={i} />;
+        <Header Title={"Scratch"} Address={"Scratch"} />
+        <div className="scratchData">
+          {scratch?.map((data, i) => {
+            return <Scratch data={data} key={i} />;
           })}
         </div>
         {user?.userType !== "Student" ? (
@@ -189,7 +189,7 @@ const Quizzes = () => {
           ""
         )}
         <Drawer
-          title="Create Quiz"
+          title="Create Scratch"
           width={520}
           closable={false}
           onClose={onClose}
@@ -209,7 +209,7 @@ const Quizzes = () => {
               onChange={(e) => handleFormChange(e)}
             />
             <input
-              placeholder="Quiz Thumbnail"
+              placeholder="Scratch Thumbnail"
               type="url"
               name="thumbnail"
               value={formData.thumbnail}
@@ -343,12 +343,12 @@ const Quizzes = () => {
             Review
           </button>
           <br></br>
-          <button className="Submit" onClick={() => submitQuiz()}>
-            Add Quiz
+          <button className="Submit" onClick={() => submitScratch()}>
+            Add Scratch
           </button>
 
           <Drawer
-            title="Quiz Questions"
+            title="Scratch Questions"
             width={320}
             closable={false}
             onClose={onChildrenDrawerClose}
@@ -415,4 +415,4 @@ const Quizzes = () => {
   );
 };
 
-export default Quizzes;
+export default Scratchs;
