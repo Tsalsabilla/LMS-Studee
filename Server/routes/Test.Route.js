@@ -74,7 +74,7 @@ router.get("/:testId", async (req, res) => {
 
 router.get("/api/quiz/js", async (req, res) => {
   try {
-    const quiz = await JavaScripQuiz.find({})
+    const quiz = await TestModel.find({})
     res.json(quiz)
   } catch (error) {
     console.log(error)

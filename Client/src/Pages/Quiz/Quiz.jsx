@@ -34,7 +34,7 @@ const Quiz = () => {
   let [isSelected, setIsSelected] = useState(false);
   let [selectedOption, setSelectedOption] = useState(null);
   let [option, setOption] = useState("");
-  let [label] = useState(["A", "B", "C", "D"]);
+  let [label] = useState(["A", "B", "C", "D", "E"]);
   let [progressBarWidth, setProgressBarWidth] = useState(0);
   let API_URL = 'http://localhost:4500/api/quiz/js'
   //end quiz2
