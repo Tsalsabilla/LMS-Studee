@@ -36,7 +36,7 @@ const Quiz = () => {
   let [option, setOption] = useState("");
   let [label] = useState(["A", "B", "C", "D", "E"]);
   let [progressBarWidth, setProgressBarWidth] = useState(0);
-  let API_URL = 'http://localhost:4500/api/quiz/js'
+  let API_URL = 'http://localhost:4500/test/api/quiz/js'
   //end quiz2
 
   // disabling right click
