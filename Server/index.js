@@ -23,7 +23,7 @@ const PORT = process.env.port || 8080;
 const adminRouter = require("./routes/Admins.Route");
 const studentRouter = require("./routes/Student.Route");
 const tutorRouter = require("./routes/Tutor.Route");
-const quizRouter = require("./routes/Quiz.Route");
+const scratchRouter = require("./routes/Scratch.Route");
 const lessonRouter = require("./routes/Lesson.Route");
 const contentRouter = require("./routes/Content.Route");
 const assignmentRouter = require("./routes/Assignment.Route");
@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 app.use("/admin", adminRouter);
 app.use("/tutor", tutorRouter);
 app.use("/student", studentRouter);
-app.use("/quiz", quizRouter);
+app.use("/scratch", scratchRouter);
 app.use("/lesson", lessonRouter);
 app.use("/content", contentRouter);
 app.use("/assignment", assignmentRouter);

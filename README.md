@@ -68,7 +68,7 @@ Salt_rounds = 5
 
 - Admin can regulate user access to particular data
 - Account credentials are sent over mail once the user account is created
-- Tutors can provide homework, assignment and quizzes to students
+- Tutors can provide homework, assignment and scratchs to students
 - Students can monitor their performance and assess their progress using an LMS.
 - Students can raise doubts
 - Tutors can add responses to doubts
@@ -92,7 +92,7 @@ Salt_rounds = 5
 
 ![2](https://github.com/piyush-agrawal6/LMS-ThreatGaurdians/assets/100460788/2c62a6ef-9fa5-4001-a616-235390cf717d)
 
-3. Quiz page
+3. Scratch page
 
 ![4](https://github.com/piyush-agrawal6/LMS-ThreatGaurdians/assets/100460788/d0fc18a9-8d29-49e7-b2b3-d391aa0814f3)
 

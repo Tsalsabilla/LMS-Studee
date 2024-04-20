@@ -1,13 +1,13 @@
-.quizzes {
+.scratchs {
   width: 100%;
   max-height: calc(100vh - 75px);
   overflow-y: auto;
   background-color: var(--light);
 }
-.quizzes::-webkit-scrollbar {
+.scratchs::-webkit-scrollbar {
   display: none;
 }
-.quizData {
+.scratchData {
   margin: 25px 20px;
   padding: 20px;
   background: white;

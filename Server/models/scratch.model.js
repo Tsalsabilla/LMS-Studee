@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const quizSchema = mongoose.Schema(
+const scratchSchema = mongoose.Schema(
   {
     title: String,
     thumbnail: {
@@ -22,6 +22,6 @@ const quizSchema = mongoose.Schema(
   { versionKey: false, timestamps: true }
 );
 
-const QuizModel = mongoose.model("quiz", quizSchema);
+const ScratchModel = mongoose.model("scratch", scratchSchema);
 
-module.exports = { QuizModel };
+module.exports = { ScratchModel };

@@ -5,7 +5,7 @@ import Login from "../Pages/Login/Login";
 import Admin from "../Pages/Admin/Admin";
 import Tutor from "../Pages/Tutor/Tutor";
 import Student from "../Pages/Student/Student";
-import Quizzes from "../Pages/Quizzes/Quizzes";
+import Scratchs from "../Pages/Scratchs/Scratchs";
 import Lessons from "../Pages/Lessons/Lessons";
 import Content from "../Pages/Contents/Content";
 import Assignment from "../Pages/Assignments/Assignment";
@@ -26,7 +26,7 @@ const Router = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/tutor" element={<Tutor />} />
         <Route path="/student" element={<Student />} />
-        <Route path="/quizzes" element={<Quizzes />} />
+        <Route path="/scratchs" element={<Scratchs />} />
         <Route path="/lessons" element={<Lessons />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/content/:id" element={<SingleContent />} />

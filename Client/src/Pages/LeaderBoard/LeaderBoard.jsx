@@ -47,7 +47,7 @@ const LeaderBoard = () => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Class</th>
-                <th>Quiz attended</th>
+                <th>Scratch attended</th>
                 <th>Points</th>
               </tr>
             </thead>
