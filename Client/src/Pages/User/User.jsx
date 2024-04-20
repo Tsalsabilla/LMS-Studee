@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import QuizContext from "../../contexts/QuizContext";
 
+//component imports
+import Navbar from "../../Components/Sidebar/Navbar";
+import Header from "../../Components/Header/Header";
+
 const User = () => {
   const { userQuiz } = useContext(QuizContext);
   const score = userQuiz.filter((quiz) => {
@@ -11,8 +15,17 @@ const User = () => {
     localStorage.removeItem("quiz");
     window.location.replace("/");
   };
+  
+// Fungsi untuk mengubah indeks menjadi huruf abjad
+const indexToLetter = (index) => {
+  const letters = ['a', 'b', 'c', 'd', 'e'];
+  return letters[index];
+};
+
   return (
+    <Navbar>
     <>
+    <Header Title={"Test"} Address={"Tests"} />
       <div className="">
         <div className="relative">
           <div className="header p-2 shadow-lg sm:px-16 px-4 flex justify-between items-center text-white bg-green-500">
@@ -55,7 +68,7 @@ const User = () => {
                             key={index}
                           >
                             <div className="p-2 bg-green-50 text-gray-600 border-2 font-bold border-green-100 w-10 flex justify-center items-center rounded-full h-10">
-                              {index + 1}
+                              {indexToLetter(index)}
                             </div>
                             <div
                               className={`option w-full relative z-10 py-2 border-2 border-gray-100 rounded-md                              
@@ -91,6 +104,7 @@ const User = () => {
         </div>
       </div>
     </>
+    </Navbar>
   );
 };
 
