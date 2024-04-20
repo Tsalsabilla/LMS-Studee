@@ -3,7 +3,7 @@ import authReducer from "./auth/reducer";
 import adminReducer from "./admin/reducer";
 import tutorReducer from "./tutor/reducer";
 import studentReducer from "./student/reducer";
-import quizReducer from "./quiz/reducer";
+import scratchReducer from "./scratch/reducer";
 import lessonReducer from "./lesson/reducer";
 import contentReducer from "./content/reducer";
 import assignmentReducer from "./assignment/reducer";
@@ -16,7 +16,7 @@ export const rootReducer = combineReducers({
   admin: adminReducer,
   tutor: tutorReducer,
   student: studentReducer,
-  quiz: quizReducer,
+  scratch: scratchReducer,
   lesson: lessonReducer,
   content: contentReducer,
   assignment: assignmentReducer,

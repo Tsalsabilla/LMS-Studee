@@ -11,6 +11,9 @@ const testSchema = mongoose.Schema(
     fileType: String,
     thumbnailUrl: String,
     size: String,
+    question: String,
+    options: Array,
+    correctAnswer: String,
   },
   { versionKey: false, timestamps: true }
 );

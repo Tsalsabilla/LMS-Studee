@@ -23,17 +23,22 @@ const PORT = process.env.port || 8080;
 const adminRouter = require("./routes/Admins.Route");
 const studentRouter = require("./routes/Student.Route");
 const tutorRouter = require("./routes/Tutor.Route");
-const quizRouter = require("./routes/Quiz.Route");
+const scratchRouter = require("./routes/Scratch.Route");
 const lessonRouter = require("./routes/Lesson.Route");
 const contentRouter = require("./routes/Content.Route");
 const assignmentRouter = require("./routes/Assignment.Route");
 const testRouter = require("./routes/Test.Route");
 const DoubtRouter = require("./routes/Doubt.Route");
 const DashboardRouter = require("./routes/Dashboard.Route");
+// const quiz = require('./routes/quiz')
 
 app.use(express.text());
 app.use(express.json());
-app.use(cors());
+app.use(cors())
+// app.use(cors({
+//   "origin": ["http://localhost:5000", "http://localhost:5173"],  "methods": ["POST", "GET",  "PUT", "DELETE"],
+//   "credentials": true
+// }))
 
 //routes
 app.get("/", (req, res) => {
@@ -42,13 +47,14 @@ app.get("/", (req, res) => {
 app.use("/admin", adminRouter);
 app.use("/tutor", tutorRouter);
 app.use("/student", studentRouter);
-app.use("/quiz", quizRouter);
+app.use("/scratch", scratchRouter);
 app.use("/lesson", lessonRouter);
 app.use("/content", contentRouter);
 app.use("/assignment", assignmentRouter);
 app.use("/test", testRouter);
 app.use("/doubt", DoubtRouter);
 app.use("/dashboard", DashboardRouter);
+// app.use(quiz)
 
 //app listening
 app.listen(PORT, async () => {

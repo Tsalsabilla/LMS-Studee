@@ -55,7 +55,7 @@ const Navbar = ({ children }) => {
       { icon: <AiOutlinePlayCircle />, title: "Videos", address: "/contents" },
       { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
       { icon: <MdOutlineAssignment />, title: "Assignments", address: "/assignments" },
-      { icon: <CgGames />, title: "Quizzes", address: "/quizzes" },
+      { icon: <CgGames />, title: "Scratchs", address: "/scratchs" },
     ]},
     { icon: <GoTrophy />, title: "Grades", address: "/leaderboard" },
   ];
@@ -64,12 +64,12 @@ const Navbar = ({ children }) => {
     { icon: <AiOutlineSchedule />, title: "Test", address: "/contents" },
     // { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
     { icon: <AiOutlineRead />, title: "Lessons", address: "/contents" },
-    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [
-    // { icon: <TbBrandSpeedtest />, title: "Quizzess", address: "/quizzes" , childrens: [
+    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/scratchs" , childrens: [
+    // { icon: <TbBrandSpeedtest />, title: "Scratchs", address: "/scratchs" , childrens: [
       { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
       { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
       { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
-      { icon: <CgGames />, title: "Quiz", address: "/quizzes" },
+      { icon: <CgGames />, title: "Scratch", address: "/scratchs" },
     ]},
     { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
     // { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
@@ -77,12 +77,12 @@ const Navbar = ({ children }) => {
   const tutorData = [
     { icon: <GoHome />, title: "Dashboard", address: "/home" },
     { icon: <PiStudent />, title: "Students", address: "/student" },
-    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/quizzes" , childrens: [
-      // { icon: <TbBrandSpeedtest />, title: "Quizzess", address: "/quizzes" , childrens: [
+    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/scratchs" , childrens: [
+      // { icon: <TbBrandSpeedtest />, title: "Scratchs", address: "/scratchs" , childrens: [
         { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
         { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
         { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
-        { icon: <CgGames />, title: "Quiz", address: "/quizzes" },
+        { icon: <CgGames />, title: "Scratch", address: "/scratchs" },
       ]},    { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
     { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
   ];

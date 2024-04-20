@@ -68,4 +68,17 @@ router.delete("/:testId", async (req, res) => {
   }
 });
 
+router.get("/:testId", async (req, res) => {
+  res.send("hello");
+});
+
+router.get("/api/quiz/js", async (req, res) => {
+  try {
+    const quiz = await TestModel.find({})
+    res.json(quiz)
+  } catch (error) {
+    console.log(error)
+  }
+});
+
 module.exports = router;
