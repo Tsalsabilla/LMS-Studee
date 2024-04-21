@@ -61,18 +61,15 @@ const Navbar = ({ children }) => {
   ];
   const studentData = [
     { icon: <GoHome />, title: "Dashboard", address: "/home" },
-    { icon: <AiOutlineSchedule />, title: "Test", address: "/contents" },
-    // { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
-    { icon: <AiOutlineRead />, title: "Lessons", address: "/contents" },
-    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/scratchs" , childrens: [
-    // { icon: <TbBrandSpeedtest />, title: "Scratchs", address: "/scratchs" , childrens: [
-      { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
+    { icon: <AiOutlineSchedule />, title: "Test", address: "/tests" },
+    { icon: <AiOutlineRead />, title: "Lessons", address: "/lessons" },
+    { icon: <TbLayoutGridAdd />, title: "Activities", childrens: [
+      { icon: <AiOutlinePlayCircle />, title: "Videos", address: "/contents" },
       { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
-      { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
-      { icon: <CgGames />, title: "Scratch", address: "/scratchs" },
+      { icon: <MdOutlineAssignment />, title: "Assignments", address: "/assignments" },
+      { icon: <CgGames />, title: "Scratchs", address: "/scratchs" },
     ]},
-    { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
-    // { icon: <TbUsers />, title: "Leader Board", address: "/leaderboard" },
+    { icon: <GoTrophy />, title: "Grades", address: "/leaderboard" },
   ];
   const tutorData = [
     { icon: <GoHome />, title: "Dashboard", address: "/home" },
