@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleTestData } from "../../Redux/test/action";
 import axios from "axios";
-import Img from "../../assets/quiz-pic.jpg";
+// import Img from "../../assets/quiz-pic.jpg";
 import QuizContext from "../../contexts/QuizContext";
 import Spiner from "../../Components/Spiner/Spiner";
 
@@ -36,7 +36,7 @@ const Quiz = () => {
   let [option, setOption] = useState("");
   let [label] = useState(["A", "B", "C", "D", "E"]);
   let [progressBarWidth, setProgressBarWidth] = useState(0);
-  let API_URL = 'http://localhost:4500/api/quiz/js'
+  let API_URL = 'http://localhost:4500/test/api/quiz/js'
   //end quiz2
 
   // disabling right click
@@ -188,10 +188,10 @@ const Quiz = () => {
         </div>
         
         {/* quiz2 */}
-        <div className="quiz-wrapper w-full min-h-[100vh] md:grid grid-cols-3">
-        <div className="md:block hidden">
+        <div className="quiz-wrapper w-full min-h-[100vh]">
+        {/* <div className="md:block hidden">
           <img src={Img} alt="" className="h-[100%] opacity-[.5]" />
-        </div>
+        </div> */}
         <div className="md:relative quiz-content h-full col-span-2">
           {isLoading ? (
             <Spiner />
@@ -250,6 +250,13 @@ const Quiz = () => {
                       <span className="">Q. </span>{" "}
                       {questions[currentQuestion].question}
                     </h1>
+                    {questions[currentQuestion].imageUrl && (
+                      <img
+                        src={questions[currentQuestion].imageUrl}
+                        alt="Question Image"
+                        className="object-contain max-h-96 w-full mb-4"
+                      />
+                    )}
                   </div>
                   <div className="options flex flex-col gap-4">
                     {questions[currentQuestion].options.map((option, index) => {
