@@ -259,11 +259,11 @@ const Quiz = () => {
                     )}
                   </div>
                   <div className="options flex flex-col gap-4">
-                    {questions[currentQuestion].options.map((option, index) => {
-                      return (
-                        <div className="option flex gap-4 items-center" key={index}>
+                    {questions[currentQuestion].options.forEach((option) => {
+                      
+                        <div className="option flex gap-4 items-center" >
                           <div className="p-2 bg-green-50 text-gray-600 border-2 font-bold border-green-100 w-10 flex justify-center items-center rounded-full h-10">
-                            {label[index]}
+                            {/* {label[index]} */}
                           </div>
                           <div
                             className={`option w-full relative z-10 py-2 cursor-pointer border-2 border-gray-100 rounded-md bg-gray-50 ${
@@ -271,9 +271,9 @@ const Quiz = () => {
                                 ? "shadow-option after:content-['✓'] after:text-white after:absolute after:right-6 after:top-[50%] after:-translate-y-[50%] after:w-6 after:h-6 after:rounded-full after:flex after:justify-center after:items-center after:bg-green-500"
                                 : ""
                             }`}
-                            onClick={(e) =>
-                              handleOption(index, { option, selected: true }, questions[currentQuestion], e)
-                            }
+                            // onClick={(e) =>
+                            //   // handleOption(index, { option, selected: true }, questions[currentQuestion], e)
+                            // }
                           >
                           <span className="relative -z-10 pl-4">{option}</span>
                           </div>
@@ -288,7 +288,6 @@ const Quiz = () => {
                           {/* )} */}
                           </div>
                         </div>
-                      );
                       
                     })}
                   </div>
