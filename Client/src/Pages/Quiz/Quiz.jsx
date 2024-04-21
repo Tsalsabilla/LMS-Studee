@@ -261,10 +261,7 @@ const Quiz = () => {
                   <div className="options flex flex-col gap-4">
                     {questions[currentQuestion].options.map((option, index) => {
                       return (
-                        <div
-                          className="option flex gap-4 items-center"
-                          key={index}
-                        >
+                        <div className="option flex gap-4 items-center" key={index}>
                           <div className="p-2 bg-green-50 text-gray-600 border-2 font-bold border-green-100 w-10 flex justify-center items-center rounded-full h-10">
                             {label[index]}
                           </div>
@@ -275,20 +272,24 @@ const Quiz = () => {
                                 : ""
                             }`}
                             onClick={(e) =>
-                              handleOption(
-                                index,
-                                { option, selected: true },
-                                questions[currentQuestion],
-                                e
-                              )
+                              handleOption(index, { option, selected: true }, questions[currentQuestion], e)
                             }
                           >
-                            <span className="relative -z-10 pl-4">
-                              {option}
-                            </span>
+                          <span className="relative -z-10 pl-4">{option}</span>
+                          </div>
+                          <div>
+                          {/* {option.imageUrl && ( */}
+                            <img
+                              src={option.imageUrl}
+                              // alt={`Option Image ${index}`}
+                              className="object-cover w-10 h-10 rounded-full"
+                            />
+                            {console.log( "imageUrl", option.imageUrl)}
+                          {/* )} */}
                           </div>
                         </div>
                       );
+                      
                     })}
                   </div>
                   <div className="footer">
