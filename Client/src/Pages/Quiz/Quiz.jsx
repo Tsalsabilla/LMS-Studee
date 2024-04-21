@@ -78,13 +78,14 @@ const Quiz = () => {
   }, [setQuestions]);
 
   const handleSubmitQuiz = async () => {
-    handleNextQuestion(questions[currentQuestion]);
+    await handleNextQuestion(questions[currentQuestion]);
     try {
       localStorage.setItem("quiz", JSON.stringify(saveQuiz));
     } catch (error) {
       console.log(error);
     }
-  };
+    window.location.replace("/user");
+  };  
 
   let [numberProgressComp] = useState([
     {
