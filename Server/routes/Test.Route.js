@@ -3,8 +3,6 @@ const router = express.Router();
 
 //model import
 const { TestModel } = require("../models/test.model");
-const JavaScripQuiz = require("../models/quiz.javascript");
-
 
 //middleware import
 const { isAuthenticated } = require("../middlewares/authenticate");
@@ -76,7 +74,7 @@ router.get("/:testId", async (req, res) => {
 
 router.get("/api/quiz/js", async (req, res) => {
   try {
-    const quiz = await JavaScripQuiz.find({})
+    const quiz = await TestModel.find({})
     res.json(quiz)
   } catch (error) {
     console.log(error)
