@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const testSchema = mongoose.Schema(
   {
     title: String,
-    class: Number,
-    subject: String,
-    type: String,
+    class: String,
+    // subject: String,
+    // type: String,
     creator: String,
     fileUrl: String,
     fileType: String,

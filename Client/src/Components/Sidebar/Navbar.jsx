@@ -73,15 +73,8 @@ const Navbar = ({ children }) => {
   ];
   const tutorData = [
     { icon: <GoHome />, title: "Dashboard", address: "/home" },
-    { icon: <PiStudent />, title: "Students", address: "/student" },
-    { icon: <TbLayoutGridAdd />, title: "Activity", address: "/scratchs" , childrens: [
-      // { icon: <TbBrandSpeedtest />, title: "Scratchs", address: "/scratchs" , childrens: [
-        { icon: <AiOutlinePlayCircle />, title: "Video", address: "/contents" },
-        { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
-        { icon: <MdOutlineAssignment />, title: "Assignment", address: "/contents" },
-        { icon: <CgGames />, title: "Scratch", address: "/scratchs" },
-      ]},    { icon: <TbLayoutGridAdd />, title: "Contents", address: "/contents" },
-    { icon: <GoTrophy />, title: "Grade", address: "/leaderboard" },
+    { icon: <AiOutlineSchedule />, title: "Test", address: "/tests" },
+    { icon: <GoTrophy />, title: "Grades", address: "/leaderboard" },
   ];
 
   // Dropdown menu

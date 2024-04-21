@@ -91,9 +91,9 @@ const Quiz = () => {
     {
       component: (
         <>
-          <span className={`connector block w-4 h-0 bg-green-500`}></span>
+          <span className={`connector block w-4 h-0 bg-pink-500`}></span>
           <span
-            className={`number bg-green-500 text-sm text-gray-200 h-6 flex justify-center items-center rounded-full w-6`}
+            className={`number bg-pink-500 text-sm text-gray-200 h-6 flex justify-center items-center rounded-full w-6`}
           >
             {currentQuestion + 1}
           </span>
@@ -119,9 +119,9 @@ const Quiz = () => {
     numberProgressComp.push({
       component: (
         <>
-          <span className={`connector block w-4 h-[1px] bg-green-500`}></span>
+          <span className={`connector block w-4 h-[1px] bg-pink-500`}></span>
           <span
-            className={`number bg-green-500 text-sm text-gray-200 h-6 flex justify-center items-center rounded-full w-6`}
+            className={`number bg-pink-500 text-sm text-gray-200 h-6 flex justify-center items-center rounded-full w-6`}
           >
             {numberProgressComp.length + 1}
           </span>
@@ -163,8 +163,7 @@ const Quiz = () => {
         {/* media component  */}
         <div className="singleTestData">
           <div className="fileContainer">
-            {singleTest?.fileType == "jpg" ||
-            singleTest?.fileType == "jpeg" ? (
+          {singleTest?.fileType === "jpg" || singleTest?.fileType === "jpeg" || singleTest?.fileType === "png" ? (
               <img src={singleTest.fileUrl} alt="" />
             ) : (
               <video
@@ -183,9 +182,9 @@ const Quiz = () => {
         <div className="singleTestDetails">
           <p>Topic : {singleTest?.title}</p>
           <p>Class : {singleTest?.class}</p>
-          <p>Subject : {singleTest?.subject}</p>
+          {/* <p>Subject : {singleTest?.subject}</p>
           <p>Test Type : {singleTest?.type}</p>
-          <p>Tutor : {singleTest?.creator}</p>
+          <p>Tutor : {singleTest?.creator}</p> */}
         </div>
         
         {/* quiz2 */}
@@ -202,14 +201,14 @@ const Quiz = () => {
                 window.location.replace("/user")
               ) : (
                 <div className="quiz h-full md:px-16 px-8 flex gap-4 flex-col justify-center">
-                  <div className="score flex justify-center mb-8">
+                  {/* <div className="score flex justify-center mb-8">
                     <button className="bg-green-100 border-2 border-green-700 py-2 px-8 flex items-center gap-4 text-2xl rounded-lg text-green-800">
                       <span>Score: </span>
                       <span className="">{score}</span>
                       <span>of</span>
                       <span>{questions.length}</span>
                     </button>
-                  </div>
+                  </div> */}
                   <div className="max-md:flex hidden">
                     <div className="bar shadow-inner w-full bg-gray-100 flex border rounded-3xl">
                       <div
@@ -248,7 +247,7 @@ const Quiz = () => {
                   </div>
                   <div className="question">
                     <h1 className="md:text-3xl flex text-gray-500 font-bold leading-[1.6] mb-4">
-                      <span className="">Q. </span>{" "}
+                      <span className=""></span>{" "}
                       {questions[currentQuestion].question}
                     </h1>
                     {questions[currentQuestion].imageUrl && (

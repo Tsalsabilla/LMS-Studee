@@ -43,8 +43,8 @@ const Test = () => {
   const initialFormData = {
     title: "",
     class: "",
-    subject: "",
-    type: "",
+    // subject: "",
+    // type: "",
     creator: user?.name,
   };
   const [formData, setFormData] = useState(initialFormData);
@@ -102,9 +102,9 @@ const Test = () => {
         cloudName: "diverse",
         uploadPreset: "diverse",
         maxFiles: 1,
-        clientAllowedFormats: ["jpg", "jpeg", "mp4"],
+        clientAllowedFormats: ["jpg", "jpeg", "png", "mp4"],
         maxFileSize: 52445000,
-        thumbnailTransformation: [{ width: 240, height: 135, crop: "fill" }],
+        thumbnailTransformation: [{ crop: "fit" }]
       },
       function (err, result) {
         if (result.info.secure_url) {
@@ -145,7 +145,7 @@ const Test = () => {
             return <TestBox data={data} key={i} />;
           })}
         </div>
-        {user?.userType !== "Student" ? (
+        {user?.userType === "Admin" ? (
           <div onClick={showDrawer}>
             <AddIcon />
           </div>
@@ -175,28 +175,28 @@ const Test = () => {
             />
             <select name="class" onChange={(e) => handleFormChange(e)}>
               <option value="">Choose Class</option>
-              <option value={5}>X PPLG 1</option>
-              <option value={6}>X PPLG 2</option>
-              <option value={7}>X PPLG 3</option>
-              <option value={8}>X PPLG 4</option>
-              <option value={9}>X PPLG 5</option>
-              <option value={10}>X PPLG 6</option>
+              <option value="Chemistry">X PPLG 1</option>
+              <option value="Chemistry">X PPLG 2</option>
+              <option value="Chemistry">X PPLG 3</option>
+              <option value="Chemistry">X PPLG 4</option>
+              <option value="Chemistry">X PPLG 5</option>
+              <option value="XI PPLG">XI PPLG</option>
             </select>
-            <select name="subject" onChange={(e) => handleFormChange(e)}>
+            {/* <select name="subject" onChange={(e) => handleFormChange(e)}>
               <option value="">Choose Subject</option>
-              <option value="Maths">Algoritma</option>
+              <option value="Algoritma dan Pemrograman">Algoritma dan Pemrograman</option>
               <option value="Physics">Naratif</option>
               <option value="Chemistry">Pseudocode</option>
               <option value="Biology">Flowchart</option>
               <option value="Political science">Pemrograman, Tipe data, Variabel dan Operator</option>
               <option value="History">Percabangan dan Perulangan</option>
-            </select>
-            <select name="type" onChange={(e) => handleFormChange(e)}>
+            </select> */}
+            {/* <select name="type" onChange={(e) => handleFormChange(e)}>
               <option value="">Choose Test Type</option>
               <option value="Assignment">Video</option>
               <option value="Project">Book</option>
               <option value="Practice">LKPD</option>
-            </select>
+            </select> */}
           </form>
           {size ? (
             <div className="uploadedImgDiv">

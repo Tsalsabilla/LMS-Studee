@@ -143,7 +143,7 @@ const Login = () => {
         </div>
         <div className="loginDetail">
           <div>
-            <h3>Studee</h3>
+          <h3 className="text-gray-700 text-xl font-medium">Studee</h3>
           </div>
 
           <div>
@@ -156,6 +156,7 @@ const Login = () => {
                 onChange={handleFormChange}
                 type="email"
                 placeholder="Enter email"
+                className="p-2 my-2"
               />
               <input
                 required
@@ -164,14 +165,20 @@ const Login = () => {
                 onChange={handleFormChange}
                 type="password"
                 placeholder="Enter password"
+                className="p-2 my-2"
               />
-              <select name="type" onChange={handleFormChange}>
+              <select
+                name="type"
+                onChange={handleFormChange}
+                className="p-2 my-2"
+                // Anda juga dapat menambahkan kelas Tailwind pada elemen select
+              >
                 <option value="">Select user type</option>
                 <option value="admin">Admin</option>
-                <option value="tutor">Teacher</option>
-                <option value="student">Student</option>
+                <option value="tutor">Student</option>
+                {/* <option value="student">Student</option> */}
               </select>
-              <button type="submit">LOGIN</button>
+              <button type="submit" className="p-2 my-2">LOGIN</button>
             </form>
           </div>
         </div>
