@@ -74,6 +74,13 @@ const Navbar = ({ children }) => {
   const tutorData = [
     { icon: <GoHome />, title: "Dashboard", address: "/home" },
     { icon: <AiOutlineSchedule />, title: "Test", address: "/tests" },
+    { icon: <AiOutlineRead />, title: "Lessons", address: "/lessons" },
+    { icon: <TbLayoutGridAdd />, title: "Activities", childrens: [
+      { icon: <AiOutlinePlayCircle />, title: "Videos", address: "/contents" },
+      { icon: <IoBulbOutline />, title: "Knowledge", address: "/doubts" },
+      { icon: <MdOutlineAssignment />, title: "Assignments", address: "/assignments" },
+      { icon: <CgGames />, title: "Scratchs", address: "/scratchs" },
+    ]},
     { icon: <GoTrophy />, title: "Grades", address: "/leaderboard" },
   ];
 

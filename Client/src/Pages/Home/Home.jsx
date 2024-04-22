@@ -61,14 +61,14 @@ const Home = () => {
       number: dashboard?.admins?.length || 0,
     },
     {
-      icon: <BiUserVoice />,
-      title: "Teachers",
-      number: dashboard?.tutors?.length || 0,
-    },
-    {
       icon: <PiStudentDuotone />,
       title: "Students",
       number: dashboard?.students?.length || 0,
+    },
+    {
+      icon: <BiUserVoice />,
+      title: "Guests",
+      number: dashboard?.tutors?.length || 0,
     },
     {
       icon: <TbLayoutGridAdd />,

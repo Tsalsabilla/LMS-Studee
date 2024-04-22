@@ -175,8 +175,8 @@ const Login = () => {
               >
                 <option value="">Select user type</option>
                 <option value="admin">Admin</option>
-                <option value="tutor">Student</option>
-                {/* <option value="student">Student</option> */}
+                <option value="student">Student</option>
+                <option value="tutor">Guest</option>
               </select>
               <button type="submit" className="p-2 my-2">LOGIN</button>
             </form>
